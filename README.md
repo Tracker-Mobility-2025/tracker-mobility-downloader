@@ -1,64 +1,126 @@
-# Tracker Mobility – Sitio web de Descarga
+﻿<div align="center">
 
-Bienvenido a la página oficial de descarga de la aplicación Tracker Mobility para trabajadores en campo.
+#  Tracker Mobility
+### Sitio Oficial de Descarga
 
-## ¿Qué es Tracker Mobility?
+Bienvenido a la página de descarga de la aplicación **Tracker Mobility** para trabajadores en campo.
 
-Es una aplicación móvil diseñada para apoyar a los trabajadores que realizan visitas domiciliarias y validación de información con clientes. Facilita el registro de datos, captura de evidencias y geolocalización de las visitas.
+---
 
-## ¿Quiénes pueden usarla?
+</div>
 
-Exclusivamente personal autorizado de Tracker Mobility. Para ingresar, se requieren credenciales corporativas.
+##  ¿Qué es Tracker Mobility?
 
-## ¿Qué puedo hacer con la app?
+**Tracker Mobility** es una aplicación móvil diseñada para apoyar a los trabajadores que realizan **visitas domiciliarias** y **validación de información** con clientes. 
 
-- Validar identidad y recopilar información del cliente.
-- Tomar fotos y adjuntar documentos como evidencia.
-- Registrar ubicación de cada visita.
-- Trabajar sin conexión y sincronizar luego.
+Facilita el registro de datos, captura de evidencias y geolocalización de las visitas de manera eficiente y segura.
 
-## Cómo descargar la app
+---
 
-1) Ingresa a la página de descarga desde tu teléfono o tablet Android.
-2) Presiona el botón “Descargar APK”.
-3) Espera a que comience la descarga. Puede tardar unos segundos.
-4) Revisa la carpeta “Descargas” de tu dispositivo para encontrar el archivo.
+##  ¿Quiénes pueden usarla?
 
-Importante: En iPhone o iPad no es posible descargar ni instalar archivos APK. Si estás en iOS, abre esta página desde un equipo Android.
+> **Acceso exclusivo:** Solo personal autorizado de Tracker Mobility.  
+> Se requieren **credenciales corporativas** para ingresar a la aplicación.
 
-## Cómo instalar en Android
+---
 
-1) Abre el archivo APK descargado.
-2) Si aparece un aviso, permite la instalación de apps de “fuentes desconocidas”.
-3) Sigue los pasos en pantalla hasta completar la instalación.
-4) Abre la app e inicia sesión con tus credenciales.
+##  ¿Qué puedo hacer con la app?
 
-## Requisitos
+| Funcionalidad | Descripción |
+|---------------|-------------|
+|  **Validación de identidad** | Verifica y recopila información del cliente |
+|  **Captura de evidencias** | Toma fotos y adjunta documentos |
+|  **Geolocalización** | Registra la ubicación de cada visita |
+|  **Modo offline** | Trabaja sin conexión y sincroniza después |
 
-- Teléfono o tablet Android 7.0 o superior.
-- Aproximadamente 25 MB de espacio disponible.
-- Conexión a internet para sincronización (puedes capturar datos sin conexión).
+---
 
-## Seguridad y privacidad
+##  Cómo descargar la app
 
-- La app es de uso interno para personal autorizado.
-- No compartas el archivo de instalación con terceros.
-- La información recolectada se maneja bajo los lineamientos de la empresa y la legislación vigente.
+### Pasos para Android
 
-## Ayuda y contacto
+1. **Ingresa** a la página de descarga desde tu teléfono o tablet Android
+2. **Presiona** el botón "Descargar APK"
+3. **Espera** a que comience la descarga (puede tardar unos segundos)
+4. **Revisa** la carpeta "Descargas" de tu dispositivo para encontrar el archivo
 
-Si tienes dudas o problemas con la descarga o instalación, contáctanos:
+>  **Importante para usuarios iOS:**  
+> En iPhone o iPad no es posible descargar ni instalar archivos APK.  
+> Si estás en iOS, abre esta página desde un equipo Android.
 
-- Correo de soporte: soporte@trackermobility.com
+---
 
-## Información de la versión
+##  Cómo instalar en Android
 
-- Versión actual: 1.0.0
-- Última actualización: 2025
+Sigue estos sencillos pasos para completar la instalación:
 
-## Desarrolladores y empresa
+1.  **Abre** el archivo APK descargado
+2.  **Permite** la instalación de apps de "fuentes desconocidas" si aparece el aviso
+3.  **Sigue** los pasos en pantalla hasta completar la instalación
+4.  **Abre** la app e inicia sesión con tus credenciales
 
-- Desarrolladores: Janover Gonzalo Saldaña Vela y Claudio Jesús Moreno Rosales
-- Empresa que brinda el servicio: Metasoft Solutions SAC
+---
 
-Gracias por usar Tracker Mobility.
+##  Requisitos del sistema
+
+-  **Sistema operativo:** Android 7.0 o superior
+-  **Espacio necesario:** Aproximadamente 25 MB
+-  **Conexión:** Internet para sincronización (puedes capturar datos sin conexión)
+
+---
+
+##  Seguridad y privacidad
+
+-  Aplicación de **uso interno** para personal autorizado
+-  **No compartas** el archivo de instalación con terceros
+-  La información se maneja bajo los **lineamientos de la empresa** y la legislación vigente
+
+---
+
+##  Ayuda y contacto
+
+¿Tienes dudas o problemas con la descarga o instalación?
+
+ **Correo de soporte:** [soporte@metasoft.pe](mailto:soporte@metasoft.pe)
+
+---
+
+##  Información de la versión
+
+| Detalle | Información |
+|---------|-------------|
+| **Versión actual** | 1.0.0 |
+| **Última actualización** | 2025 |
+
+---
+
+##  Desarrolladores y empresa
+
+<table>
+<tr>
+<td align="center">
+
+###  Empresa
+**Metasoft Solutions SAC**  
+*Empresa que brinda el servicio*
+
+</td>
+<td align="center">
+
+###  Desarrolladores
+**Janover Gonzalo Saldaña Vela**  
+**Claudio Jesús Moreno Rosales**
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+**Gracias por usar Tracker Mobility** 
+
+*Desarrollado con  por Metasoft Solutions SAC*
+
+</div>
