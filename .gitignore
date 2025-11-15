@@ -22,12 +22,7 @@ $RECYCLE.BIN/
 *.rar
 *.7z
 *.tar.gz
-src/downloads/*.aab
-src/downloads/*.zip
 
-# Mantener la carpeta downloads pero ignorar su contenido excepto README
-src/downloads/*
-!src/downloads/README.md
 
 # Node modules (si se usa npm en el futuro)
 node_modules/

@@ -386,6 +386,14 @@ function isAndroidDevice() {
     return /Android/i.test(navigator.userAgent);
 }
 
+// Detectar dispositivo iOS (incluye iPadOS)
+function isIOSDevice() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const iOS = /iPad|iPhone|iPod/.test(ua);
+    const iPadOS13Plus = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1; // iPadOS
+    return iOS || iPadOS13Plus;
+}
+
 // Mostrar información específica para Android
 function showAndroidInfo() {
     if (isAndroidDevice()) {
@@ -466,7 +474,83 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadBtn.style.transform = 'translateY(0)';
         }
     });
+
+    // Manejo específico para iOS: no es compatible con archivos APK
+    handleIOSRestrictions();
 });
+
+// UI/UX para iOS: deshabilitar descarga y ofrecer compartir/copiar enlace
+function handleIOSRestrictions() {
+    if (!isIOSDevice()) return;
+
+    try {
+        // Deshabilitar botón y cambiar texto
+        downloadBtn.disabled = true;
+        const icon = downloadBtn.querySelector('i');
+        if (icon) icon.className = 'fas fa-ban';
+        const label = downloadBtn.querySelector('.btn-text');
+        if (label) label.textContent = 'Disponible solo en Android';
+
+        // Mostrar aviso con opciones para compartir/copiar
+        const downloadSection = document.querySelector('.download-section');
+        if (!downloadSection) return;
+
+        const box = document.createElement('div');
+        box.className = 'ios-info-box';
+        const absoluteApkUrl = new URL(CONFIG.APK_FILE, window.location.origin).toString();
+        box.innerHTML = `
+            <div class="ios-info-title">
+                <i class="fas fa-info-circle"></i>
+                <strong>Descarga de APK no compatible en iOS</strong>
+            </div>
+            <p>Estás usando iPhone/iPad. Los archivos APK solo pueden descargarse e instalarse en dispositivos Android.
+            Comparte o copia el enlace para abrirlo desde un teléfono/tablet Android.</p>
+            <div class="ios-actions">
+                <button id="shareApkLink" class="ios-action-btn"><i class="fas fa-share-alt"></i> Compartir enlace</button>
+                <button id="copyApkLink" class="ios-action-btn"><i class="fas fa-link"></i> Copiar enlace</button>
+            </div>
+            <code class="ios-link">${absoluteApkUrl}</code>
+        `;
+        downloadSection.appendChild(box);
+
+        // Estilos mínimos
+        const styles = document.createElement('style');
+        styles.textContent = `
+            .ios-info-box { margin-top: 1rem; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; padding: 1rem; border-radius: .5rem; }
+            .ios-info-title { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
+            .ios-actions { display: flex; gap: .5rem; margin: .5rem 0; }
+            .ios-action-btn { background: var(--primary-color); color: white; border: none; padding: .5rem .75rem; border-radius: .375rem; cursor: pointer; }
+            .ios-action-btn:hover { opacity: .9; }
+            .ios-link { display: block; margin-top: .5rem; user-select: all; word-break: break-all; }
+        `;
+        document.head.appendChild(styles);
+
+        // Handlers de compartir/copiar
+        const shareBtn = document.getElementById('shareApkLink');
+        const copyBtn = document.getElementById('copyApkLink');
+        if (shareBtn && navigator.share) {
+            shareBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.share({ title: 'Tracker Mobility APK', text: 'Descarga la app para Android', url: absoluteApkUrl });
+                } catch (_) {}
+            });
+        } else if (shareBtn) {
+            // Si no hay Web Share API, deshabilitar botón
+            shareBtn.disabled = true;
+            shareBtn.title = 'Compartir no soportado';
+        }
+        if (copyBtn) {
+            copyBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(absoluteApkUrl);
+                    showNotification('Enlace copiado. Ábrelo en un dispositivo Android.', 'success');
+                } catch (e) {
+                    showNotification('No se pudo copiar el enlace.', 'error');
+                }
+            });
+        }
+    } catch (_) {}
+}
 
 // Agregar enlace de descarga directa debajo del botón
 function addDirectDownloadLink() {
