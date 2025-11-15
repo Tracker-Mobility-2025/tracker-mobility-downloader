@@ -1,0 +1,80 @@
+# IDEs y Editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Sistema Operativo
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+
+# Archivos de descarga ( binarios)
+*.aab
+*.ipa
+*.exe
+*.dmg
+*.zip
+*.rar
+*.7z
+*.tar.gz
+src/downloads/*.aab
+src/downloads/*.zip
+
+# Mantener la carpeta downloads pero ignorar su contenido excepto README
+src/downloads/*
+!src/downloads/README.md
+
+# Node modules (si se usa npm en el futuro)
+node_modules/
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# Archivos de log
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de compilación y distribución
+dist/
+build/
+.output/
+*.min.js
+*.min.css
+
+# Archivos de backup
+*.bak
+*.backup
+*~
+
+# Archivos de sistema
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Certificados y claves (seguridad)
+*.pem
+*.key
+*.cert
+*.p12
+*.jks
+*.keystore
+
