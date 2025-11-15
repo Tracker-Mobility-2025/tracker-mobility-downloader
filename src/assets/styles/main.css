@@ -28,6 +28,7 @@ body {
     color: var(--text-dark);
     background: var(--background);
     overflow-x: hidden;
+    padding-top: 80px; /* Espacio para el header fijo */
 }
 
 .container {
@@ -41,12 +42,17 @@ body {
     background: var(--gradient);
     color: white;
     padding: 1rem 2rem;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     overflow: hidden;
     min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .header::before {
@@ -393,6 +399,10 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Ajuste para header en móvil */
+    }
+
     .hero-section {
         padding: 1.5rem 1rem;
     }
@@ -450,6 +460,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding-top: 60px; /* Ajuste para header en pantallas pequeñas */
+    }
+
     .header h1 {
         font-size: 1.2rem;
     }
