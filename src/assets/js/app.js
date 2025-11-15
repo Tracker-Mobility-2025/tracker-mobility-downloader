@@ -1,6 +1,6 @@
 // Configuración y variables globales
 const CONFIG = {
-    APK_FILE: 'downloads/tracker-mobility-worker.apk', // Nombre del archivo APK
+    APK_FILE: 'src/downloads/app-tracker-movility-release.apk', // Nombre del archivo APK
     DOWNLOAD_DELAY: 2000, // Tiempo de simulación de descarga en ms
     VERSION: '1.0.0',
     APP_SIZE: '~25 MB',
@@ -75,25 +75,13 @@ function initiateFileDownload() {
     const link = document.createElement('a');
     link.style.display = 'none';
     
-    // Si el archivo APK existe en el directorio, usar ruta relativa
-    // Si no, crear un archivo de ejemplo o mostrar mensaje
-    if (fileExists(CONFIG.APK_FILE)) {
-        link.href = CONFIG.APK_FILE;
-    } else {
-        // Crear un blob de ejemplo si no existe el archivo APK
-        const blob = createDummyAPK();
-        link.href = URL.createObjectURL(blob);
-    }
+    // Descargar el archivo APK real
+    link.href = CONFIG.APK_FILE;
+    link.download = 'tracker-mobility-app.apk';
     
-    link.download = CONFIG.APK_FILE;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    // Limpiar URL del blob si se creó
-    if (link.href.startsWith('blob:')) {
-        URL.revokeObjectURL(link.href);
-    }
 }
 
 // Verificar si el archivo existe (simulado para el ejemplo)

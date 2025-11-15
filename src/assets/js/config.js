@@ -11,8 +11,8 @@ window.SITE_CONFIG = {
     
     // Configuración de descarga
     download: {
-        fileName: 'tracker-mobility-worker.apk',
-        folder: 'downloads/',
+        fileName: 'app-tracker-movility-release.apk',
+        folder: 'src/downloads/',
         delayMs: 2000
     },
     
