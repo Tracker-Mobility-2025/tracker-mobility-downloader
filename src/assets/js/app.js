@@ -90,11 +90,11 @@ function updateProgress(percentage) {
 // Iniciar descarga del archivo
 function initiateFileDownload() {
     try {
-        const suggestedName = (window.SITE_CONFIG && window.SITE_CONFIG.download && window.SITE_CONFIG.download.fileName) 
-            ? window.SITE_CONFIG.download.fileName 
+        const suggestedName = (window.SITE_CONFIG && window.SITE_CONFIG.download && window.SITE_CONFIG.download.fileName)
+            ? window.SITE_CONFIG.download.fileName
             : 'tracker-mobility-app.apk';
 
-        // Crear enlace de descarga (método preferido)
+        // Crear enlace de descarga (único método para evitar duplicados)
         const link = document.createElement('a');
         link.style.display = 'none';
         link.href = CONFIG.APK_FILE;
@@ -103,15 +103,8 @@ function initiateFileDownload() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
-        // Fallback: navegar directamente si el navegador ignora el atributo download
-        setTimeout(() => {
-            // Si por alguna razón no se inició descarga, forzar navegación al recurso
-            try { window.location.href = CONFIG.APK_FILE; } catch (_) {}
-        }, 150);
     } catch (err) {
-        console.error('Fallo al iniciar descarga directa, intentando fallback:', err);
-        try { window.location.href = CONFIG.APK_FILE; } catch (_) {}
+        console.error('Fallo al iniciar descarga directa:', err);
     }
 }
 
