@@ -440,12 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar información para Android
     showAndroidInfo();
 
-    // Agregar enlace de descarga directa como fallback (útil en Android/Chrome)
-    try {
-        if (isAndroidDevice()) {
-            addDirectDownloadLink();
-        }
-    } catch (_) {}
+    // (Sin enlace de respaldo) Solo el botón gestiona la descarga
     
     // Prevenir múltiples clics
     downloadBtn.addEventListener('click', (e) => {
@@ -545,37 +540,7 @@ function handleIOSRestrictions() {
     } catch (_) {}
 }
 
-// Agregar enlace de descarga directa debajo del botón
-function addDirectDownloadLink() {
-    const downloadSection = document.querySelector('.download-section');
-    if (!downloadSection || document.getElementById('directApkLink')) return;
-
-    const suggestedName = (window.SITE_CONFIG && window.SITE_CONFIG.download && window.SITE_CONFIG.download.fileName)
-        ? window.SITE_CONFIG.download.fileName
-        : 'tracker-mobility-app.apk';
-
-    const link = document.createElement('a');
-    link.id = 'directApkLink';
-    link.href = CONFIG.APK_FILE;
-    link.setAttribute('download', suggestedName);
-    link.textContent = 'Descarga directa (APK)';
-    link.className = 'direct-download-link';
-
-    downloadSection.appendChild(link);
-
-    // Estilos mínimos
-    const styles = document.createElement('style');
-    styles.textContent = `
-        .direct-download-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            color: var(--primary-color);
-            text-decoration: underline;
-            font-weight: 500;
-        }
-    `;
-    document.head.appendChild(styles);
-}
+// Nota: se eliminó el enlace de descarga directa; el único punto de descarga es el botón
 
 // Funciones de utilidad adicionales
 function formatFileSize(bytes) {

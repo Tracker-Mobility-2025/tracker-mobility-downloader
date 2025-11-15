@@ -46,7 +46,6 @@ Acceso desde móvil en la misma red: `http://<IP_DE_TU_PC>:8080` (por ejemplo, `
 ## 📲 Descarga en Android (móviles/tablets)
 
 - El botón “Descargar APK” inicia la descarga directamente en Android dentro del mismo gesto del usuario (evita bloqueos del navegador).
-- Se agrega automáticamente un enlace “Descarga directa (APK)” como respaldo cuando se detecta Android.
 - Requiere permitir “Instalar apps de fuentes desconocidas” en el dispositivo.
 
 ## ⚙️ Configuración relevante
@@ -84,9 +83,9 @@ window.SITE_CONFIG = {
 
 ## 🛠️ Solución de problemas
 
-- No descarga en móvil: asegúrate de acceder vía `http://` (no `file://`). El sitio dispara la descarga inmediatamente en Android y añade un enlace de respaldo bajo el botón.
+- No descarga en móvil: asegúrate de acceder vía `http://` (no `file://`). El sitio dispara la descarga inmediatamente en Android.
 - Ruta del APK: verifica que el archivo exista en `src/downloads/app-tracker-movility-release.apk`.
-- Navegador ignora “download”: algunos navegadores móviles abren el archivo en una pestaña; usa el enlace “Descarga directa (APK)” o mantén presionado y selecciona “Descargar”.
+- Navegador ignora “download”: algunos navegadores móviles abren el archivo en una pestaña; mantén presionado el botón y selecciona “Descargar” o usa menú del navegador.
 - Caché: si cambiaste el APK, fuerza recarga (Ctrl+F5) o limpia caché del navegador móvil.
 
 ## 🌐 Despliegue
