@@ -16,26 +16,44 @@ const downloadProgress = document.getElementById('downloadProgress');
 const btnText = downloadBtn.querySelector('.btn-text');
 
 // Función principal de descarga
-async function downloadAPK() {
+function downloadAPK() {
     if (isDownloading) return;
-    
+
     try {
         isDownloading = true;
         updateDownloadButton('downloading');
-        
-        // Simular proceso de descarga
-        await simulateDownload();
-        
-        // Iniciar descarga real
-        initiateFileDownload();
-        
-        // Mostrar éxito
-        showDownloadSuccess();
-        
+
+        // En móviles (Android), algunos navegadores requieren que la descarga
+        // se dispare inmediatamente dentro del gesto del usuario.
+        if (isAndroidDevice()) {
+            initiateFileDownload();
+            showDownloadSuccess();
+            setTimeout(() => {
+                resetDownloadButton();
+                isDownloading = false;
+            }, 3000);
+            return;
+        }
+
+        // En escritorio, mantenemos la animación de progreso, pero no bloqueamos la descarga en móviles.
+        simulateDownload()
+            .then(() => {
+                initiateFileDownload();
+                showDownloadSuccess();
+            })
+            .catch((error) => {
+                console.error('Error en la descarga:', error);
+                showDownloadError();
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    resetDownloadButton();
+                    isDownloading = false;
+                }, 3000);
+            });
     } catch (error) {
-        console.error('Error en la descarga:', error);
+        console.error('Error en la descarga (bloque try):', error);
         showDownloadError();
-    } finally {
         setTimeout(() => {
             resetDownloadButton();
             isDownloading = false;
@@ -71,17 +89,30 @@ function updateProgress(percentage) {
 
 // Iniciar descarga del archivo
 function initiateFileDownload() {
-    // Crear enlace de descarga
-    const link = document.createElement('a');
-    link.style.display = 'none';
-    
-    // Descargar el archivo APK real
-    link.href = CONFIG.APK_FILE;
-    link.download = 'tracker-mobility-app.apk';
-    
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+        const suggestedName = (window.SITE_CONFIG && window.SITE_CONFIG.download && window.SITE_CONFIG.download.fileName) 
+            ? window.SITE_CONFIG.download.fileName 
+            : 'tracker-mobility-app.apk';
+
+        // Crear enlace de descarga (método preferido)
+        const link = document.createElement('a');
+        link.style.display = 'none';
+        link.href = CONFIG.APK_FILE;
+        link.setAttribute('download', suggestedName);
+        link.target = '_self';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Fallback: navegar directamente si el navegador ignora el atributo download
+        setTimeout(() => {
+            // Si por alguna razón no se inició descarga, forzar navegación al recurso
+            try { window.location.href = CONFIG.APK_FILE; } catch (_) {}
+        }, 150);
+    } catch (err) {
+        console.error('Fallo al iniciar descarga directa, intentando fallback:', err);
+        try { window.location.href = CONFIG.APK_FILE; } catch (_) {}
+    }
 }
 
 // Verificar si el archivo existe (simulado para el ejemplo)
@@ -407,6 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Mostrar información para Android
     showAndroidInfo();
+
+    // Agregar enlace de descarga directa como fallback (útil en Android/Chrome)
+    try {
+        if (isAndroidDevice()) {
+            addDirectDownloadLink();
+        }
+    } catch (_) {}
     
     // Prevenir múltiples clics
     downloadBtn.addEventListener('click', (e) => {
@@ -429,6 +467,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Agregar enlace de descarga directa debajo del botón
+function addDirectDownloadLink() {
+    const downloadSection = document.querySelector('.download-section');
+    if (!downloadSection || document.getElementById('directApkLink')) return;
+
+    const suggestedName = (window.SITE_CONFIG && window.SITE_CONFIG.download && window.SITE_CONFIG.download.fileName)
+        ? window.SITE_CONFIG.download.fileName
+        : 'tracker-mobility-app.apk';
+
+    const link = document.createElement('a');
+    link.id = 'directApkLink';
+    link.href = CONFIG.APK_FILE;
+    link.setAttribute('download', suggestedName);
+    link.textContent = 'Descarga directa (APK)';
+    link.className = 'direct-download-link';
+
+    downloadSection.appendChild(link);
+
+    // Estilos mínimos
+    const styles = document.createElement('style');
+    styles.textContent = `
+        .direct-download-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    `;
+    document.head.appendChild(styles);
+}
 
 // Funciones de utilidad adicionales
 function formatFileSize(bytes) {
