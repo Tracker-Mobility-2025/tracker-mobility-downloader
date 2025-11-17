@@ -561,9 +561,85 @@ function getDeviceInfo() {
     };
 }
 
+// ========================================
+// CARRUSEL DE IMÁGENES
+// ========================================
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const indicators = document.querySelectorAll('.indicator');
+let autoSlideInterval;
+
+function showSlide(index) {
+    // Asegurar que el índice esté dentro del rango
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    // Actualizar slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === currentSlide) {
+            slide.classList.add('active');
+        }
+    });
+
+    // Actualizar indicadores
+    indicators.forEach((indicator, i) => {
+        indicator.classList.remove('active');
+        if (i === currentSlide) {
+            indicator.classList.add('active');
+        }
+    });
+}
+
+function moveCarousel(direction) {
+    showSlide(currentSlide + direction);
+    resetAutoSlide();
+}
+
+function goToSlide(index) {
+    showSlide(index);
+    resetAutoSlide();
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+// Iniciar carrusel automático
+if (slides.length > 0) {
+    autoSlideInterval = setInterval(nextSlide, 4000);
+    
+    // Pausar al hacer hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        });
+    }
+}
+
 // Exportar funciones para uso global si es necesario
 window.TrackerMobility = {
     downloadAPK,
     showNotification,
     CONFIG
 };
+
+// Exportar funciones del carrusel para los onclick en HTML
+window.moveCarousel = moveCarousel;
+window.goToSlide = goToSlide;

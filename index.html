@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker Mobility - Descarga</title>
+    <link rel="icon" href="src/assets/img/icono-tracker-mobility.png" type="image/png">
     <link rel="stylesheet" href="src/assets/styles/main.css">
     <link rel="stylesheet" href="src/assets/css/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
     <div class="container">
         <header class="header">
             <div class="logo">
-                <h1>Tracker Mobility</h1>
+                <img src="src/assets/img/logo-toolbar-tracker-mobility.png" alt="Tracker Mobility Logo" class="logo-img">
             </div>
         </header>
 
@@ -30,24 +31,34 @@
         <main class="main-content">
             <div class="app-preview">
                 <div class="phone-mockup">
-                    <div class="screen">
-                        <div class="app-icon">
-                            <i class="fas fa-clipboard-check"></i>
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="src/assets/img/1-app-mobile.jpg" alt="Tracker Mobility App - Pantalla 1">
                         </div>
-                        <h3>Tracker Mobility</h3>
-                        <div class="features">
-                            <div class="feature">
-                                <i class="fas fa-user-check"></i>
-                                <span>Validación de identidad</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-clipboard-list"></i>
-                                <span>Recolección de datos</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Geolocalización de visitas</span>
-                            </div>
+                        <div class="carousel-slide">
+                            <img src="src/assets/img/2-app-mobile.jpg" alt="Tracker Mobility App - Pantalla 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="src/assets/img/3-app-mobile.jpg" alt="Tracker Mobility App - Pantalla 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="src/assets/img/4-app-mobile.jpg" alt="Tracker Mobility App - Pantalla 4">
+                        </div>
+                        
+                        <!-- Controles del carrusel -->
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="goToSlide(0)"></span>
+                            <span class="indicator" onclick="goToSlide(1)"></span>
+                            <span class="indicator" onclick="goToSlide(2)"></span>
+                            <span class="indicator" onclick="goToSlide(3)"></span>
                         </div>
                     </div>
                 </div>
