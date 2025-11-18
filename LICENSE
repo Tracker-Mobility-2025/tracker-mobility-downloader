@@ -1,6 +1,7 @@
 LICENCIA DE SOFTWARE PROPIETARIO
 
 Copyright © 2025 Metasoft Solutions SAC
+Desarrollado para Tracker Mobility SAC
 Todos los derechos reservados.
 
 ================================================================================
@@ -9,16 +10,20 @@ TÉRMINOS DE LICENCIA DE SOFTWARE PROPIETARIO
 
 Este software y su documentación asociada (en adelante, el "Software") son
 propiedad exclusiva de Metasoft Solutions Sociedad Anónima Cerrada (en adelante,
-"Metasoft Solutions SAC"), con domicilio en la República del Perú, y están
-protegidos por las leyes de propiedad intelectual del Perú, tratados
-internacionales y convenciones aplicables.
+"Metasoft Solutions SAC"), desarrollado para su cliente Tracker Mobility
+Sociedad Anónima Cerrada (en adelante, "Tracker Mobility SAC"), ambas con
+domicilio en la República del Perú.
+
+El Software está protegido por las leyes de propiedad intelectual del Perú,
+tratados internacionales y convenciones aplicables.
 
 1. CONCESIÓN DE LICENCIA
 
-Metasoft Solutions SAC otorga al usuario final autorizado (en adelante, el
-"Licenciatario") una licencia limitada, no exclusiva, intransferible y
-revocable para usar el Software exclusivamente para los fines corporativos
-internos autorizados por escrito.
+Metasoft Solutions SAC, como propietaria del Software desarrollado para Tracker
+Mobility SAC, otorga al usuario final autorizado de Tracker Mobility SAC (en
+adelante, el "Licenciatario") una licencia limitada, no exclusiva,
+intransferible y revocable para usar el Software exclusivamente para los fines
+corporativos de validación en campo autorizados por Tracker Mobility SAC.
 
 2. RESTRICCIONES
 
@@ -51,12 +56,17 @@ limitación:
 Licenciatario no adquiere ningún derecho de propiedad sobre el Software,
 únicamente un derecho limitado de uso conforme a esta licencia.
 
-4. MARCAS REGISTRADAS
+4. MARCAS REGISTRADAS Y PROPIEDAD INTELECTUAL
+
+El código fuente, arquitectura y componentes técnicos del Software son
+propiedad intelectual exclusiva de Metasoft Solutions SAC.
 
 "Tracker Mobility" y todos los logotipos, nombres comerciales y marcas
-relacionadas son propiedad exclusiva de Metasoft Solutions SAC y están
-protegidos por las leyes de marcas de la República del Perú. Queda prohibido
-su uso sin autorización expresa por escrito.
+relacionadas son propiedad exclusiva de Tracker Mobility SAC y están protegidos
+por las leyes de marcas de la República del Perú.
+
+Queda prohibido el uso no autorizado del Software o de las marcas sin
+autorización expresa por escrito de sus respectivos propietarios.
 
 5. RESCISIÓN
 
@@ -196,9 +206,17 @@ del Perú:
 
 Para consultas relacionadas con esta licencia, dirigirse a:
 
+DESARROLLADOR (Propiedad Intelectual del Software):
 Metasoft Solutions Sociedad Anónima Cerrada
 Departamento Legal
 Email: legal@metasoft.pe
+Dirección: [Dirección completa, Lima, Perú]
+Teléfono: +51 XXX XXX XXX
+
+CLIENTE (Titular de la Marca y Servicios):
+Tracker Mobility Sociedad Anónima Cerrada
+Departamento Legal
+Email: legal@trackermobility.pe
 Dirección: [Dirección completa, Lima, Perú]
 Teléfono: +51 XXX XXX XXX
 
@@ -213,7 +231,9 @@ SI NO ESTÁ DE ACUERDO CON ESTOS TÉRMINOS, NO INSTALE, COPIE NI USE EL SOFTWARE
 ================================================================================
 
 Copyright © 2025 Metasoft Solutions SAC
+Desarrollado para Tracker Mobility SAC
 Todos los derechos reservados.
 
-Tracker Mobility™ es una marca registrada de Metasoft Solutions SAC.
+Software desarrollado por: Metasoft Solutions SAC
+Tracker Mobility™ es una marca registrada de Tracker Mobility SAC.
 

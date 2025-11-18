@@ -1,6 +1,7 @@
-# Documentación Legal - Tracker Mobility
+# Documentación Legal - Sistema de Gestión de Visitas en Campo
 
-**Metasoft Solutions SAC**  
+**Aplicación desarrollada por Metasoft Solutions SAC**  
+**Cliente: Tracker Mobility SAC**  
 **Última actualización:** 17 de noviembre de 2025
 
 ---
@@ -24,18 +25,19 @@ Al acceder, descargar, instalar o utilizar la aplicación móvil **Tracker Mobil
 
 ### 1.2 Definiciones
 
-- **"Aplicación"**: Software móvil Tracker Mobility y todos sus componentes.
-- **"Empresa"**: Metasoft Solutions Sociedad Anónima Cerrada (RUC [XXXXXXXX]).
-- **"Usuario"**: Personal autorizado con credenciales corporativas válidas.
-- **"Servicios"**: Funcionalidades proporcionadas por la Aplicación.
+- **"Aplicación"**: Software móvil de Gestión de Visitas en Campo desarrollado para Tracker Mobility SAC y todos sus componentes.
+- **"Desarrollador"**: Metasoft Solutions Sociedad Anónima Cerrada (RUC [XXXXXXXX]), empresa desarrolladora del software.
+- **"Cliente"**: Tracker Mobility Sociedad Anónima Cerrada (RUC [XXXXXXXX]), empresa cliente para la cual fue desarrollada la Aplicación.
+- **"Usuario"**: Personal autorizado de Tracker Mobility SAC o sus contratistas con credenciales corporativas válidas.
+- **"Servicios"**: Funcionalidades proporcionadas por la Aplicación para la gestión de visitas de campo.
 
 ### 1.3 Uso Autorizado
 
 La Aplicación es de uso exclusivo para:
 
-- Empleados activos de Metasoft Solutions SAC o sus empresas cliente
-- Personal contratado específicamente para tareas de validación en campo
-- Usuarios con credenciales corporativas válidas emitidas por la Empresa
+- Empleados activos y personal autorizado de Tracker Mobility SAC
+- Personal contratado por Tracker Mobility SAC específicamente para tareas de validación en campo
+- Usuarios con credenciales corporativas válidas emitidas por Tracker Mobility SAC o Metasoft Solutions SAC
 
 **El Usuario se compromete a:**
 
@@ -59,7 +61,7 @@ Queda expresamente prohibido:
 
 ### 1.5 Suspensión y Terminación
 
-La Empresa se reserva el derecho de suspender o terminar el acceso del Usuario, sin previo aviso, en los siguientes casos:
+Metasoft Solutions SAC, como propietaria del software, y Tracker Mobility SAC, como cliente autorizado, se reservan el derecho de suspender o terminar el acceso del Usuario, sin previo aviso, en los siguientes casos:
 
 - Violación de estos Términos y Condiciones
 - Uso indebido, fraudulento o no autorizado de la Aplicación
@@ -77,12 +79,20 @@ La Empresa se reserva el derecho de modificar estos Términos y Condiciones en c
 
 ## 2. Política de Privacidad
 
-### 2.1 Responsable del Tratamiento de Datos
+### 2.1 Responsables del Tratamiento de Datos
 
-**Metasoft Solutions Sociedad Anónima Cerrada**  
+**Desarrollador (Encargado del Tratamiento):**  
+Metasoft Solutions Sociedad Anónima Cerrada  
 RUC: [XXXXXXXX]  
 Domicilio: [Dirección completa, Lima, Perú]  
 Email: privacidad@metasoft.pe  
+Teléfono: +51 XXX XXX XXX
+
+**Cliente (Responsable del Tratamiento):**  
+Tracker Mobility Sociedad Anónima Cerrada  
+RUC: [XXXXXXXX]  
+Domicilio: [Dirección completa, Lima, Perú]  
+Email: legal@trackermobility.pe  
 Teléfono: +51 XXX XXX XXX
 
 ### 2.2 Datos Personales Recopilados
@@ -152,11 +162,13 @@ El tratamiento de datos personales se fundamenta en:
 
 Los datos personales pueden ser compartidos con:
 
-- **Clientes corporativos:** Empresas que contrataron los servicios de validación
+- **Tracker Mobility SAC:** Como cliente y responsable principal del tratamiento de datos
+- **Metasoft Solutions SAC:** Como encargado del tratamiento y desarrollador del software
+- **Clientes corporativos de Tracker Mobility SAC:** Empresas que contrataron los servicios de validación
 - **Proveedores de servicios:** Hosting, almacenamiento en la nube, procesamiento de datos (bajo acuerdos de confidencialidad)
 - **Autoridades competentes:** Cuando sea requerido por ley, orden judicial o administrativa
 
-**La Empresa NO vende ni comercializa datos personales a terceros para fines de marketing.**
+**Ni Metasoft Solutions SAC ni Tracker Mobility SAC venden o comercializan datos personales a terceros para fines de marketing.**
 
 ### 2.6 Transferencias Internacionales
 
@@ -275,10 +287,13 @@ Todos los derechos de propiedad intelectual sobre la Aplicación, incluyendo sin
 - Algoritmos, métodos y procesos
 - Bases de datos y estructuras de datos
 - Documentación técnica y manuales
-- Marcas, logotipos y nombres comerciales
 - Derechos de autor y secretos comerciales
 
-...son propiedad exclusiva de **Metasoft Solutions SAC** y están protegidos por:
+...son propiedad exclusiva de **Metasoft Solutions SAC**, desarrollador del software.
+
+La marca **"Tracker Mobility"** y elementos asociados son propiedad de **Tracker Mobility SAC**, cliente para el cual fue desarrollada la Aplicación.
+
+Estos derechos están protegidos por:
 
 - Ley sobre el Derecho de Autor - Decreto Legislativo N° 822
 - Decisión 351 de la Comunidad Andina
@@ -287,9 +302,11 @@ Todos los derechos de propiedad intelectual sobre la Aplicación, incluyendo sin
 
 ### 4.2 Marcas Registradas
 
-**"Tracker Mobility"** y todos los logotipos, símbolos y nombres comerciales asociados son marcas registradas o en proceso de registro de Metasoft Solutions SAC ante el Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual (INDECOPI).
+**"Tracker Mobility"** y todos los logotipos, símbolos y nombres comerciales asociados son propiedad de **Tracker Mobility SAC** y están registrados o en proceso de registro ante el Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual (INDECOPI).
 
-Queda prohibido el uso no autorizado de dichas marcas.
+El software de la Aplicación y su arquitectura son propiedad intelectual de **Metasoft Solutions SAC**.
+
+Queda prohibido el uso no autorizado de dichas marcas y del software.
 
 ### 4.3 Restricciones
 
@@ -335,12 +352,23 @@ El Usuario acepta indemnizar, defender y mantener indemne a la Empresa, sus dire
 
 ## 6. Contacto Legal
 
-### 6.1 Información de la Empresa
+### 6.1 Información de las Empresas
+
+**DESARROLLADOR DEL SOFTWARE:**
 
 **Razón Social:** Metasoft Solutions Sociedad Anónima Cerrada  
 **RUC:** [XXXXXXXX]  
 **Domicilio Legal:** [Dirección completa, distrito, provincia, Lima, Perú]  
-**Representante Legal:** [Nombre del representante]
+**Representante Legal:** [Nombre del representante]  
+**Rol:** Propietario de la propiedad intelectual del software
+
+**CLIENTE:**
+
+**Razón Social:** Tracker Mobility Sociedad Anónima Cerrada  
+**RUC:** [XXXXXXXX]  
+**Domicilio Legal:** [Dirección completa, distrito, provincia, Lima, Perú]  
+**Representante Legal:** [Nombre del representante]  
+**Rol:** Cliente para el cual fue desarrollada la aplicación, titular de la marca "Tracker Mobility"
 
 ### 6.2 Contactos por Departamento
 
@@ -381,9 +409,10 @@ Al utilizar la Aplicación, el Usuario declara:
 
 ---
 
-**Metasoft Solutions SAC**  
+**Metasoft Solutions SAC** - Desarrollador  
+**Tracker Mobility SAC** - Cliente  
 **Copyright © 2025. Todos los derechos reservados.**
 
 **Última actualización:** 17 de noviembre de 2025  
-**Versión del documento:** 1.0
+**Versión del documento:** 1.1
 
