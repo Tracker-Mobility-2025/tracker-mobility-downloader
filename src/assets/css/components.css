@@ -1,5 +1,25 @@
 /* Estilos adicionales y componentes específicos */
 
+/* Logo con texto */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1rem;
+    }
+}
+
 /* Puedes agregar aquí estilos adicionales como: */
 /* - Componentes específicos */
 /* - Estilos para páginas adicionales */

@@ -108,49 +108,6 @@ function initiateFileDownload() {
     }
 }
 
-// Verificar si el archivo existe (simulado para el ejemplo)
-function fileExists(filename) {
-    // En un entorno real, esto se verificaría con el servidor
-    // Para este ejemplo, retornamos false para usar el archivo de ejemplo
-    return false;
-}
-
-// Crear un archivo APK de ejemplo (solo para demostración)
-function createDummyAPK() {
-    const content = `Tracker Mobility - Aplicación para Trabajadores de Campo v${CONFIG.VERSION}
-    
-Este es un archivo de ejemplo para demostración.
-En un entorno de producción, aquí iría el archivo APK real.
-
-Información de la aplicación:
-- Nombre: Tracker Mobility Worker App
-- Versión: ${CONFIG.VERSION}
-- Tamaño: ${CONFIG.APP_SIZE}
-- Plataforma: Android ${CONFIG.MIN_ANDROID}
-- Propósito: Visitas domiciliarias y validación de identidad
-
-Funcionalidades principales:
-✓ Formularios de validación de identidad
-✓ Captura de fotografías y documentos
-✓ Geolocalización de visitas
-✓ Sincronización de datos en tiempo real
-✓ Modo offline para áreas sin conexión
-✓ Reportes automáticos de actividad
-
-Para usar esta descarga con un APK real:
-1. Coloca tu archivo APK en el mismo directorio que index.html
-2. Renómbralo a '${CONFIG.APK_FILE}' o actualiza la variable CONFIG.APK_FILE
-3. El botón de descarga funcionará automáticamente
-
-⚠️ IMPORTANTE: Esta aplicación es exclusiva para trabajadores autorizados
-de Tracker Mobility y requiere credenciales corporativas para su uso.
-
-Fecha de generación: ${new Date().toLocaleString()}
-`;
-    
-    return new Blob([content], { type: 'application/vnd.android.package-archive' });
-}
-
 // Actualizar estado del botón
 function updateDownloadButton(state) {
     const icon = downloadBtn.querySelector('i');
@@ -387,58 +344,10 @@ function isIOSDevice() {
     return iOS || iPadOS13Plus;
 }
 
-// Mostrar información específica para Android
-function showAndroidInfo() {
-    if (isAndroidDevice()) {
-        const androidInfo = document.createElement('div');
-        androidInfo.className = 'android-detected';
-        androidInfo.innerHTML = `
-            <i class="fab fa-android"></i>
-            <span>Dispositivo Android detectado - Ideal para trabajo de campo</span>
-        `;
-        
-        // Insertar antes del botón de descarga
-        const downloadSection = document.querySelector('.download-section');
-        const downloadBtn = document.querySelector('.download-btn');
-        downloadSection.insertBefore(androidInfo, downloadBtn);
-        
-        // Agregar estilos
-        const styles = document.createElement('style');
-        styles.textContent = `
-            .android-detected {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                background: linear-gradient(135deg, #a7f3d0, #34d399);
-                color: #047857;
-                padding: 1rem;
-                border-radius: 0.5rem;
-                margin-bottom: 2rem;
-                font-weight: 500;
-                animation: pulse 2s infinite;
-            }
-            
-            .android-detected i {
-                font-size: 1.5rem;
-            }
-            
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.02); }
-            }
-        `;
-        document.head.appendChild(styles);
-    }
-}
-
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     // Configurar botón de descarga
     downloadBtn.addEventListener('click', downloadAPK);
-    
-    // Mostrar información para Android
-    showAndroidInfo();
 
     // (Sin enlace de respaldo) Solo el botón gestiona la descarga
     
@@ -538,27 +447,6 @@ function handleIOSRestrictions() {
             });
         }
     } catch (_) {}
-}
-
-// Nota: se eliminó el enlace de descarga directa; el único punto de descarga es el botón
-
-// Funciones de utilidad adicionales
-function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
-
-function getDeviceInfo() {
-    return {
-        platform: navigator.platform,
-        userAgent: navigator.userAgent,
-        language: navigator.language,
-        cookieEnabled: navigator.cookieEnabled,
-        onLine: navigator.onLine
-    };
 }
 
 // ========================================
