@@ -16,17 +16,19 @@ const downloadProgress = document.getElementById('downloadProgress');
 const btnText = downloadBtn.querySelector('.btn-text');
 
 // Función principal de descarga
-function downloadAPK() {
+async function downloadAPK() {
     if (isDownloading) return;
 
     try {
         isDownloading = true;
         updateDownloadButton('downloading');
 
-        // En móviles (Android), algunos navegadores requieren que la descarga
-        // se dispare inmediatamente dentro del gesto del usuario.
+        // En móviles (Android), iniciar descarga inmediatamente
+        // para evitar que el navegador bloquee la acción
         if (isAndroidDevice()) {
-            initiateFileDownload();
+            // Pequeño delay solo para mostrar feedback visual
+            await new Promise(resolve => setTimeout(resolve, 500));
+            await initiateFileDownload();
             showDownloadSuccess();
             setTimeout(() => {
                 resetDownloadButton();
@@ -35,10 +37,10 @@ function downloadAPK() {
             return;
         }
 
-        // En escritorio, mantenemos la animación de progreso, pero no bloqueamos la descarga en móviles.
+        // En escritorio, mantener animación de progreso
         simulateDownload()
-            .then(() => {
-                initiateFileDownload();
+            .then(async () => {
+                await initiateFileDownload();
                 showDownloadSuccess();
             })
             .catch((error) => {
@@ -94,17 +96,65 @@ function initiateFileDownload() {
             ? window.SITE_CONFIG.download.fileName
             : 'tracker-mobility-app.apk';
 
-        // Crear enlace de descarga (único método para evitar duplicados)
-        const link = document.createElement('a');
-        link.style.display = 'none';
-        link.href = CONFIG.APK_FILE;
-        link.setAttribute('download', suggestedName);
-        link.target = '_self';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Método mejorado para móviles: usar fetch + blob para forzar descarga
+        if (isAndroidDevice()) {
+            downloadViaBlob(CONFIG.APK_FILE, suggestedName);
+        } else {
+            // Método tradicional para escritorio
+            const link = document.createElement('a');
+            link.style.display = 'none';
+            link.href = CONFIG.APK_FILE;
+            link.setAttribute('download', suggestedName);
+            link.target = '_self';
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => {
+                document.body.removeChild(link);
+            }, 100);
+        }
     } catch (err) {
         console.error('Fallo al iniciar descarga directa:', err);
+        // Fallback: abrir en nueva pestaña
+        window.open(CONFIG.APK_FILE, '_blank');
+    }
+}
+
+// Descarga mediante Blob para mejor compatibilidad móvil
+async function downloadViaBlob(url, filename) {
+    try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error('Error al obtener el archivo');
+        }
+        
+        const blob = await response.blob();
+        
+        // Crear URL temporal del blob
+        const blobUrl = window.URL.createObjectURL(blob);
+        
+        // Crear enlace temporal y forzar descarga
+        const link = document.createElement('a');
+        link.style.display = 'none';
+        link.href = blobUrl;
+        link.download = filename;
+        
+        // Para Android: algunos navegadores requieren que el elemento esté en el DOM
+        document.body.appendChild(link);
+        
+        // Forzar el click
+        link.click();
+        
+        // Limpiar después de un breve delay
+        setTimeout(() => {
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+        }, 250);
+        
+    } catch (error) {
+        console.error('Error en descarga via blob:', error);
+        // Fallback final: abrir directamente el archivo
+        window.location.href = url;
     }
 }
 
@@ -348,6 +398,12 @@ function isIOSDevice() {
 document.addEventListener('DOMContentLoaded', () => {
     // Configurar botón de descarga
     downloadBtn.addEventListener('click', downloadAPK);
+
+    // Mostrar nota para usuarios móviles
+    const mobileNote = document.querySelector('.mobile-note');
+    if (mobileNote && (isAndroidDevice() || /Mobile/i.test(navigator.userAgent))) {
+        mobileNote.style.display = 'flex';
+    }
 
     // (Sin enlace de respaldo) Solo el botón gestiona la descarga
     

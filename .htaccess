@@ -1,0 +1,42 @@
+# Configuración para permitir descargas de APK
+<IfModule mod_headers.c>
+    # Permitir descarga de APK desde cualquier origen
+    <FilesMatch "\.(apk)$">
+        Header set Content-Type "application/vnd.android.package-archive"
+        Header set Content-Disposition "attachment"
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </FilesMatch>
+</IfModule>
+
+# Tipos MIME para archivos APK
+<IfModule mod_mime.c>
+    AddType application/vnd.android.package-archive .apk
+</IfModule>
+
+# Habilitar compresión para otros archivos (no para APK)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cacheo de recursos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # APK - cache corto para permitir actualizaciones
+    ExpiresByType application/vnd.android.package-archive "access plus 1 day"
+    
+    # Otros recursos
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+</IfModule>
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Seguir enlaces simbólicos
+Options +FollowSymLinks

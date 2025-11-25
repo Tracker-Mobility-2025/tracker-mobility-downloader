@@ -1,0 +1,22 @@
+# Configuración específica para descargas de APK
+<IfModule mod_headers.c>
+    # Forzar descarga de archivos APK
+    <FilesMatch "\.(apk)$">
+        Header set Content-Type "application/vnd.android.package-archive"
+        Header set Content-Disposition "attachment; filename=\"app-tracker-mobility.apk\""
+        Header set X-Content-Type-Options "nosniff"
+        Header set Access-Control-Allow-Origin "*"
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>
+
+# Tipo MIME para APK
+<IfModule mod_mime.c>
+    AddType application/vnd.android.package-archive .apk
+</IfModule>
+
+# Permitir acceso directo a archivos APK
+<Files "*.apk">
+    Order allow,deny
+    Allow from all
+</Files>
