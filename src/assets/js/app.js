@@ -1,6 +1,6 @@
 // Configuración y variables globales
 const CONFIG = {
-    APK_FILE: 'src/downloads/app-tracker-movility-release.apk', // Nombre del archivo APK
+    APK_FILE: 'src/downloads/app-tracker-mobility.apk', // Nombre del archivo APK
     DOWNLOAD_DELAY: 2000, // Tiempo de simulación de descarga en ms
     VERSION: '1.0.0',
     APP_SIZE: '~25 MB',
