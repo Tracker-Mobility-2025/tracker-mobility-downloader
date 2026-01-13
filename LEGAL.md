@@ -2,7 +2,7 @@
 
 **Aplicación desarrollada por Metasoft Solutions SAC**  
 **Cliente: Tracker Mobility SAC**  
-**Última actualización:** 17 de noviembre de 2025
+**Última actualización:** 12 de enero de 2025
 
 ---
 
