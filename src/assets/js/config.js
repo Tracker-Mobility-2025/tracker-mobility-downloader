@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
     // Configuración de descarga
     download: {
         fileName: 'app-tracker-mobility.apk',
-        folder: 'src/downloads/',
+        url: 'https://pub-f4bd5db9be684595ae70cb0b206be30a.r2.dev/app-tracker-mobility.apk',
         delayMs: 2000
     },
     

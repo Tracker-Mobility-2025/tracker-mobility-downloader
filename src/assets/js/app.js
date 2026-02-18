@@ -1,6 +1,6 @@
 // Configuración y variables globales
 const CONFIG = {
-    APK_FILE: 'src/downloads/app-tracker-mobility.apk',
+    APK_FILE: 'https://pub-f4bd5db9be684595ae70cb0b206be30a.r2.dev/app-tracker-mobility.apk',
     APK_FILENAME: 'app-tracker-mobility.apk',
     VERSION: '1.0.0',
     APP_SIZE: '~25 MB',
